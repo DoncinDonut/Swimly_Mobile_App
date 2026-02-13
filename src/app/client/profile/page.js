@@ -1,9 +1,3 @@
-'use client';
-
-export default function ProfilePage() {
-  return (
-    <div>
-      <h1>Profile Page</h1>
-    </div>
-  );
+export default function ClientDashboard() {
+  return <div>Dashboard</div>
 }
