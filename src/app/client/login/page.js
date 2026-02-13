@@ -39,7 +39,7 @@ export default function loginPage() {
             window.location.href = '/client/client_Dashboard';
         }
         else {
-            console.log('Not valid');
+            console.log('Not valid!');
             alert('Invalid email or password');
         }
     }
