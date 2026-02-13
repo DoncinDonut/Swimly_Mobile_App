@@ -25,7 +25,7 @@ export default function registerPage() {
     console.log('Sent First Name: ' + firstName)
     console.log('Sent Last Name: ' + lastName)
     console.log('Sent Email: ' + email)
-    console.log('Sent Password: ' + password)
+    console.log('Sent Password: ***** ')
 
     if (!firstName || !lastName || !email|| !password || !confirmPassword) {
         alert('Please fill in all fields!');
