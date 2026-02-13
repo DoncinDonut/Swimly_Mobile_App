@@ -1,5 +1,29 @@
-# Default ignored files
+# =========================
+# ENV / Secrets
+# =========================
+.env
+.env.local
+.env.*
+!.env.example
+
+# =========================
+# Node / Next
+# =========================
+node_modules/
+.next/
+out/
+
+# =========================
+# Python / FastAPI
+# =========================
+venv/
+__pycache__/
+*.pyc
+
+# =========================
+# IntelliJ
+# =========================
 /shelf/
 /workspace.xml
-# Editor-based HTTP Client requests
 /httpRequests/
+.idea/
