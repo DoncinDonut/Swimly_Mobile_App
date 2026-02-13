@@ -1,19 +1,21 @@
 import os
-from fastapi import FastAPI
+import bcrypt
+from fastapi import APIRouter
 from dotenv import load_dotenv
 from pymongo import MongoClient
 
 load_dotenv()
 
-app = FastAPI()
+router = APIRouter()
 client = MongoClient(os.getenv('MONGO_URI'))
 db = client[os.getenv('DATABASE_NAME')]
 
-@app.get('/server/login')
+@router.get('/server/login')
 def login(email: str, password: str):
-    user = db.Users.find_one({'email': email, 'password': password})
+    user = db.Users.find_one({'email': email})
 
-    if user:
+
+    if user and bcrypt.checkpw(password.encode(), user['password']):
         return {'Valid': True}
     else:
         return {'Valid': False}

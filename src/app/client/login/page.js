@@ -20,7 +20,7 @@ export default function loginPage() {
     let password = data.get('password')
 
     console.log('Sent Email: ' + email)
-    console.log('Sent Password: ' + password)
+    console.log('Sent Password: ***** ')
 
     if (!email || !password) {
         alert('Please fill in all fields!');

@@ -18,34 +18,33 @@ export default function registerPage() {
 
     let firstName = data.get('firstName')
     let lastName = data.get('lastName')
-    let phoneNumber = data.get('phoneNumber')
-    let createPassword = data.get('createPassword')
+    let email = data.get('email')
+    let password = data.get('password')
     let confirmPassword = data.get('confirmPassword')
 
     console.log('Sent First Name: ' + firstName)
     console.log('Sent Last Name: ' + lastName)
-    console.log('Sent Phone Number: ' + phoneNumber)
-    console.log('Sent Created Password: ' + createPassword)
-    console.log('Sent Confirmed Password: ' + confirmPassword)
+    console.log('Sent Email: ' + email)
+    console.log('Sent Password: ' + password)
 
-    if (!firstName || !lastName || !phoneNumber || !createPassword || !createPassword) {
+    if (!firstName || !lastName || !email|| !password || !confirmPassword) {
         alert('Please fill in all fields!');
         return;
     }
 
-    if (createPassword != confirmPassword) {
+    if (password != confirmPassword) {
         alert('Passwords do not match!');
         return;
     }
 
-    runDBCallAsync(`/server/register?firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}phoneNumber=${encodeURIComponent(phoneNumber)}&createPassword=${encodeURIComponent(createPassword)}&confirmPassword=${encodeURIComponent(confirmPassword)}`)
+    runDBCallAsync(`/server/register?firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}&confirmPassword=${encodeURIComponent(confirmPassword)}`)
     };
 
     async function runDBCallAsync(url) {
         const res = await fetch(url);
         const data = await res.json();
 
-        if (data.valid) {
+        if (data.Valid) {
             window.location.href = '/client/login';
         }
         else {
@@ -163,7 +162,6 @@ export default function registerPage() {
         label = 'Last Name'
         name = 'lastName'
         autoComplete = 'lastName'
-        autoFocus
     />
 
     {/* Email input field */}
@@ -177,7 +175,6 @@ export default function registerPage() {
         label = 'Email'
         name = 'email'
         autoComplete = 'email'
-        autoFocus
     />
 
     {/* Password input field */}
